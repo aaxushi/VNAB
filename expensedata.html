@@ -5,116 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Expense tracking</title>
-    <!-- Corrected Bootstrap CSS link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
     <script src="particles.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap');
-        body{
-            background:rgb(247,247,247);
-        }
-        #table-container{
-            background:rgb(240,240,240);
-            height:225px;
-            width:800px;
-            overflow:auto;
-            overflow-x:auto;
-            display:flex;
-            justify-content:center;
-            align-items:flex-start;
-            border-radius:10px;
-            box-shadow:0 0 12px rgba(0,0,0,0.15);
-            position:absolute;
-            top:60%;
-            left:50%;
-            transform:translate(-50%,-50%);
-        }
-        *{
-            font-family:'Konkhmer Sleokcher',cursive;
-        }
-        table{
-            width:inherit;
-        }
-        tr{
-            margin-bottom:5px;
-        }
-        td{
-            text-align:center;
-            background:#857ddb;
-            color:white;
-            font-family:'Montserrat',sans-serif;
-            border-radius:3px;
-            cursor:pointer;
-            border:1px solid black;
-        }
-        th{
-            background:rgb(0,32,100);
-            color:white;
-            text-align:center;
-            height:60px;
-        }
-        ::placeholder,input{
-            text-align:center;
-        }
-        td.food{
-            background:#4738ec;
-        }
-        td.clothing{
-            background:#A3C7D6;
-        }
-        td.transportation{
-            background:#4bce6a;
-        }
-        td.debt{
-            background:#f4445b;
-        }
-        td.education{
-           background:#A3C7D6;
-        }
-        td.miscallaneous{
-            background:#017cf0bb;
-        }
-        #container{
-            background:rgb(52,70,232);
-            display:grid;
-            grid-template-columns:repeat(2,auto);
-            padding:10px;
-            gap:10px; 
-        }
-        button{
-            place-self:center;
-            box-shadow:0 0 20px rgba(0,0,0,0.15);
-            width:50%;
-        }
-        input,select{
-            border-radius:5px;
-            border:none;
-            outline:none;
-            cursor:pointer;
-            height:40px;
-        }
-        select{
-            text-align:center;
-        }
-    </style>
+    <link rel="stylesheet" href="expensedata.css">
 </head>
 <body>
+    <div id="particles-js"></div>
     <div id='container'>
         <input id='dateInput' type='date'>
         <select id='type'>
             <option disabled selected value="">Please Select an option</option>
-            <option value='Food'>Food</option>
-            <option value='Clothing'>Clothing</option>
-            <option value='Transportation'>Transportation</option>
+            <option value='Eateries'>Eateries</option>
+            <option value='Apparel'>Apparel</option>
+            <option value='Transport'>Transportation</option>
             <option value='Debt'>Debt</option>
             <option value='Education'>Education</option>
             <option value='Miscallaneous'>Miscallaneous</option>
         </select>
         <input type='number' placeholder='Amount' id='amountInput'>
         <input type='text' placeholder='Description' id='descriptionInput'>
-        <button id='button' class='btn btn-primary'>Add Expense</button>
+        <div class="button-container">
+        <button id='button' class='btn btn-primary add'>Add Expense</button>
+        </div>
     </div>
-    <h2 style="text-align:center">Bill to track</h2>
+    <h2 class="heading">Bill to track</h2>
     <div id='table-container'>
         
         <table id='table'>
@@ -126,82 +40,7 @@
             </tr>
         </table>
     </div>
-    <script>
-        let button = document.getElementById('button');
-        let DATE = document.getElementById('dateInput');
-        let AMOUNT = document.getElementById('amountInput');
-        let DESCRIPTION = document.getElementById('descriptionInput');
-        let TYPE = document.getElementById('type');
-        let table = document.getElementById('table');
-        let class_name;
-        let expense_records = [];
-
-        if (localStorage.getItem('expense_records')) {
-            expense_records = JSON.parse(localStorage.getItem('expense_records'));
-            renderTable();
-        }
-
-        function add_expense(date = 'N/A', type = 'N/A', amount = 'N/A', description = 'N/A') {
-            let DATE_OBJECT = new Date(DATE.value);
-            let FORMATTED_DATE = DATE_OBJECT.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
-            date = FORMATTED_DATE;
-            type = TYPE.value;
-            amount = AMOUNT.value;
-            description = DESCRIPTION.value;
-
-            switch (TYPE.value) {
-                case 'Food':
-                    class_name = 'food';
-                    break;
-                case 'Clothing':
-                    class_name = 'clothing';
-                    break;
-                case 'Transportation':
-                    class_name = 'transportation';
-                    break;
-                case 'Education':
-                    class_name = 'education';
-                    break;
-                case 'Miscallaneous':
-                    class_name = 'miscellaneous';
-                    break;
-            }
-            expense_records.push({ date, type, amount, description, class_name });
-            updateLocalStorage();
-            renderTable();
-        }
-
-        function delete_expense(index) {
-            expense_records.splice(index, 1);
-            updateLocalStorage();
-            renderTable();
-        }
-
-        function renderTable() {
-            table.innerHTML = `<tr>
-                <th>Date</th>
-                <th>Type</th>
-                <th>Amount</th>
-                <th>Description</th>
-                <th>Action</th>
-                </tr>`;
-            expense_records.forEach((expense, index) => {
-                let color_code = expense.class_name;
-                table.innerHTML += `<tr>
-                    <td class="${color_code}">${expense.date}</td>
-                    <td class="${color_code}">${expense.type}</td>
-                    <td class="${color_code}">${expense.amount}</td>
-                    <td class="${color_code}">${expense.description}</td>
-                    <td class="${color_code}"><button onclick="delete_expense(${index})" class="btn btn-primary btn-sm">Delete</button></td>
-                    </tr>`;
-            });
-        }
-
-        function updateLocalStorage() {
-            localStorage.setItem('expense_records', JSON.stringify(expense_records));
-        }
-
-        button.addEventListener('click', add_expense);
-    </script>
+    <script src="expensedata.script"></script>
+    <script src ="script.js"></script>
 </body>
 </html>
