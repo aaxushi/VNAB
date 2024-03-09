@@ -1,0 +1,158 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure particles appear behind other content */
+}
+
+body {
+    /* display: flex; */
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    background-color: #33086c;
+}
+
+.container{
+    display: flex;
+    margin: 10px auto;
+    justify-content: center;
+}
+
+.card {
+    height: 500px;
+    margin: 50px;
+    box-shadow: 5px 5px 20px black;
+    overflow: hidden;
+    position: relative; /* Add position relative to allow absolute positioning of the button */
+}
+
+img {
+    height: 500px;
+    width: 350px;
+    border-radius: 3px;
+    transition: 2s;
+}
+
+.intro {
+    height: 70px;
+    width: 350px;
+    padding: 6px;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 240px;
+    background: rgb(27, 27, 27, 0.5);
+    color: wheat;
+    transition: 2s;
+}
+
+h1 {
+    margin: 10px;
+    font-size: 40px;
+}
+
+p {
+    font-size: 20px;
+    margin: 20px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+span {
+    font-weight: bold;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.card:hover .intro {
+    height: 220px;
+    bottom: 240px;
+    background: black;
+}
+
+/* body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+} */
+
+.card:hover p {
+    opacity: 1;
+    visibility: visible;
+}
+
+.card:hover img {
+    transform: scale(1.1) rotate(-3deg);
+}
+
+.card-button {
+    background-color: #5f398a; /* Green background color */
+    border: none;
+    color: white;
+    padding: 20px 40px; /* Larger padding */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 20px auto; /* Center align the button */
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Add transition */
+}
+
+.card-button:hover {
+    background-color: #2e1657; /* Darker green on hover */
+}
+header:hover {
+    background-color: rgba(75, 66, 66, 0.1);
+}
+/* Header styles */
+header {
+    background-color: rgba(255, 255, 255, 0.5); /* Make the header 50% transparent white */
+    padding: 15px 40px; /* Increase space for side margins */
+    display: flex;
+    justify-content: space-between;
+    width:90%;
+    align-items: center;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1); /* Add a 15px blur effect */
+    border-radius: 15px; 
+    margin: 10px auto;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s; /* Add transition for smooth color change */
+}
+
+nav ul li a:hover {
+    color: #5273c5; /* Change color on hover */
+}
+
+.logo img {
+    height: 50px;
+    width:80px;
+    border-radius: 50%;
+}
+
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #f4f5f1;
+}
