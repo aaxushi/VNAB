@@ -1,0 +1,173 @@
+body {
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    /* display: flex; */
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #33086c;
+  
+  }
+  
+  .main {
+    width: 450px;
+    height: 580px;
+    background: transparent;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 5px 20px 50px #000;
+    margin: 30px auto;
+  }
+  
+  #chk {
+    display: none;
+  }
+  
+  .signup {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  label {
+    color: #fff;
+    font-size: 2.3em;
+    justify-content: center;
+    display: flex;
+    margin: 60px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+  }
+  
+  input {
+    width: 60%;
+    height: 20px;
+    background: transparent;
+    display: flex;
+    margin: 20px auto;
+    padding: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    outline: none;
+    border-radius: 40px;
+    color:#fff;
+  }
+  
+  input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  button {
+    width: 65%;
+    height: 40px;
+    margin: 10px auto;
+    justify-content: center;
+    display: block;
+    color: #fff;
+    background: #344a9e;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 30px;
+    outline: none;
+    border: none;
+    border-radius: 40px;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #5273c5;
+  }
+  
+  .forgot_p {
+    height: 510px;
+    background: #d7bee7;
+    border-radius: 60% / 7%;
+    transform: translateY(-180px);
+    transition: 0.8s ease-in-out;
+  }
+  
+  .forgot_p label {
+    color: #fff;
+    transform: scale(0.6);
+    padding-top: 10px;
+  }
+  .rst_input::placeholder{
+    color:#fff;
+  }
+  
+  #chk:checked~.forgot_p {
+    transform: translateY(-600px);
+  
+  }
+  
+  #chk:checked~.forgot_p label {
+    transform: scale(1);
+    padding-top: 20px;
+  
+  }
+  
+  #chk:checked~.signup label {
+    transform: scale(0.6);
+  
+  }
+
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure particles appear behind other content */
+}
+
+header:hover {
+    background-color: rgba(75, 66, 66, 0.1);
+}
+/* Header styles */
+header {
+    background-color: rgba(255, 255, 255, 0.5); /* Make the header 50% transparent white */
+    padding: 15px 40px; /* Increase space for side margins */
+    display: flex;
+    justify-content: space-between;
+    width:90%;
+    align-items: center;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1); /* Add a 15px blur effect */
+    border-radius: 15px; 
+    margin: 10px auto;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s; /* Add transition for smooth color change */
+}
+
+nav ul li a:hover {
+    color: #5273c5; /* Change color on hover */
+}
+
+.logo img {
+    height: 50px;
+    border-radius: 50%;
+}
+
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #f4f5f1;
+}
+  
+
+  
+ 
