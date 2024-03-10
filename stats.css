@@ -1,0 +1,84 @@
+body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #33086c;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: calc(100% - 40px);
+  margin: 30px auto;
+  /* border:1px solid #a0457b; */
+  width:80%;
+}
+.main p{
+  text-align: center;
+  color:#fff;
+  font-family: sans-serif;
+  font-size: 35px;
+  font-style: italic;
+  background-color: #a0457b;
+  width:80%;
+  margin: 40px auto;
+  border-radius: 20px;
+}
+
+.weekly-graph {
+  margin-top: 50px;
+  margin-bottom: 30px; /* Add space below the weekly graph */
+  
+}
+
+.monthly-graph {
+  margin-top: 30px; /* Add space above the monthly graph */
+
+}
+
+.left-area, .right-area {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pie-chart, .graphs {
+  margin-top: 50px;
+  width: 70%; /* Adjust width as needed */
+}
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure particles appear behind other content */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+.button-container button {
+  font-size: 18px; /* Increase the font size */
+  padding: 10px 20px; /* Increase padding for larger size */
+  background-color: #a0457b; /* Set initial background color */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.8s; /* Add transition for smooth hover effect */
+  transition: color 0.8s; /* Add transition for smooth hover effect */
+
+}
+
+.button-container button:hover {
+  background-color: #630c5e; /* Change background color on hover */
+  color: rgb(255, 218, 218);
+}
